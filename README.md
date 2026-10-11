@@ -70,6 +70,8 @@ For a local production-mode check, set `ETHNOMART_DATA_FILE` to an absolute priv
 
 Tests cover the compiled website and API, deep links, all 390 individual responsive image assets, secure sessions, private queues, database persistence and catalogue publication. CI runs installation, type checks, both builds and tests on Node 24.
 
+The typography plugin pins an older CSS parser. The scoped `package.json` override supplies `postcss-selector-parser` 7.1.6 to address GHSA-rj75-hqrm-r3gf while retaining the current plugin. Revisit the override when the plugin supports a patched parser directly. Esbuild is pinned to 0.28.2 for the build scripts and Vite.
+
 ## Release scope
 
 This is the current sample website deployed with a production runtime. Sample events, jobs, merchant accounts and stock claims are fictional. Real registration, payments, deliveries and external email are not connected. Real operator details, permitted live listings and policies are still needed for an operational marketplace. The preview remains `noindex` while fictional content is present.
