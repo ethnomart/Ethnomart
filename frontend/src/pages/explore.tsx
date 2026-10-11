@@ -30,6 +30,16 @@ export default function ExplorePage() {
     when = p.get('when') || 'upcoming',
     page = p.get('page') || '1';
   const [term, setTerm] = useState(q);
+  const hasFilters = !!(
+    q ||
+    city ||
+    community ||
+    category ||
+    employmentType ||
+    p.get('businessKind') ||
+    (!fixed && kind) ||
+    (when !== 'upcoming' && ['event', 'job'].includes(kind))
+  );
   useEffect(() => setTerm(q), [q]);
   const api = new URLSearchParams({
     kind,
@@ -222,7 +232,15 @@ export default function ExplorePage() {
               label: c,
             })),
           )}
-        <button className="em-m-link" onClick={() => navigate(path)}>
+        <button
+          type="button"
+          className="em-m-link"
+          disabled={!hasFilters && !term}
+          onClick={() => {
+            setTerm('');
+            navigate(path);
+          }}
+        >
           Clear filters
         </button>
         <Link className="em-m-link" href="/saved">
@@ -242,7 +260,12 @@ export default function ExplorePage() {
       />
       {result.data && !result.isError && (
         <>
-          <div className="em-m-results-meta">
+          <div
+            className="em-m-results-meta"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             <span>
               {result.data.total} sample{' '}
               {result.data.total === 1 ? 'result' : 'results'}

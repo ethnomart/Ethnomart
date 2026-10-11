@@ -31,7 +31,7 @@
   cursor: pointer;
 }
 .em-catalogue-eyebrow {
-  font-size: 11px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 22px;
@@ -81,7 +81,7 @@
   font-weight: 500;
 }
 .em-catalogue-filters label {
-  font-size: 12px;
+  font-size: 13px;
   display: block;
   margin-bottom: 10px;
 }
@@ -110,7 +110,7 @@
   cursor: pointer;
 }
 .em-catalogue-filters h3 {
-  font-size: 11px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin: 28px 0 13px;
@@ -172,7 +172,7 @@
   letter-spacing: -0.035em;
 }
 .em-catalogue-result-heading > p {
-  font-size: 12px;
+  font-size: 13px;
   color: #60645f;
   text-align: right;
   overflow-wrap: anywhere;
@@ -200,7 +200,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  color: #959d93;
+  color: #51595c;
 }
 .em-catalogue-card:nth-child(3n + 2) .em-catalogue-card-photo {
   background: #f5e3d8;
@@ -220,7 +220,7 @@
   flex-direction: column;
 }
 .em-catalogue-card-copy > p {
-  font-size: 11px;
+  font-size: 13px;
   color: #60645f;
   line-height: 1.6;
 }
@@ -246,14 +246,14 @@
   margin: 21px 0 8px;
 }
 .em-catalogue-card-price span {
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0;
   display: block;
   color: #60645f;
 }
 .em-catalogue-card-copy .em-catalogue-card-review {
   margin-top: 13px;
-  font-size: 10px;
+  font-size: 13px;
 }
 .em-catalogue-pagination {
   display: flex;
@@ -277,11 +277,11 @@
 }
 .em-catalogue-pagination button:disabled {
   background: #f0f1ed;
-  color: #81857d;
+  color: #51595c;
   cursor: default;
 }
 .em-catalogue-pagination span {
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
 }
 .em-catalogue-button {
@@ -338,14 +338,14 @@
 }
 .em-product-photo > div {
   text-align: center;
-  color: #717568;
+  color: #51595c;
   display: grid;
   justify-items: center;
   gap: 18px;
   font-size: 13px;
 }
 .em-product-category {
-  font-size: 12px;
+  font-size: 13px;
   margin: 4px 0 23px;
 }
 .em-product-brand {
@@ -367,7 +367,7 @@
   margin-top: 25px;
 }
 .em-product-price span {
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0;
   margin-left: 7px;
   color: #60645f;
@@ -376,7 +376,7 @@
   display: inline-flex;
   border-radius: 99px;
   background: #f0eee8;
-  font-size: 12px;
+  font-size: 13px;
   padding: 10px 16px;
   margin: 15px 0 30px;
 }
@@ -401,7 +401,7 @@
   margin-bottom: 8px;
 }
 .em-product-review p {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.7;
   margin-top: 7px;
   color: #484e52;
@@ -433,7 +433,7 @@
 }
 .em-product-shop > span {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   color: #60645f;
   margin: 8px 0;
 }
@@ -588,7 +588,7 @@
   }
   .em-catalogue-pagination button {
     padding: 12px;
-    font-size: 12px;
+    font-size: 13px;
   }
   .em-catalogue-pagination {
     gap: 8px;
@@ -628,8 +628,8 @@
   justify-content: center;
   gap: 15px;
   text-align: center;
-  color: #737c70;
+  color: #51595c;
 }
 .em-catalogue-photo-placeholder span {
-  font-size: 11px;
+  font-size: 13px;
 }

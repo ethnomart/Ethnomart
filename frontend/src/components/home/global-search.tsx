@@ -30,7 +30,7 @@ export function GlobalSearch() {
         }}
       >
         <label className="em-m-search-term">
-          <span>What feels like home?</span>
+          <span>Search EthnoMart</span>
           <div>
             <Search size={20} aria-hidden="true" />
             <input
@@ -53,14 +53,14 @@ export function GlobalSearch() {
           </div>
         </label>
         <label className="em-m-search-city">
-          <span>Where?</span>
+          <span>City</span>
           <select
             name="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             aria-label="Search city"
           >
-            <option value="">All sample cities</option>
+            <option value="">All cities</option>
             {meta.data?.cities.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}
@@ -69,9 +69,22 @@ export function GlobalSearch() {
           </select>
         </label>
         <button type="submit" aria-label="Search EthnoMart">
-          Explore <ArrowUpRight size={22} aria-hidden="true" />
+          Search <ArrowUpRight size={20} aria-hidden="true" />
         </button>
       </form>
+      {meta.isError && (
+        <p className="em-m-search-status" role="status">
+          City options could not load. You can still search all cities.{' '}
+          <button type="button" onClick={() => void meta.refetch()}>
+            Retry cities
+          </button>
+        </p>
+      )}
+      <span className="sr-only" role="status">
+        {suggestions.isFetching && debounced.length >= 2
+          ? 'Finding search suggestions.'
+          : ''}
+      </span>
       <div className="em-m-search-hints">
         <span>Try:</span>
         {['Clothing', 'Workshop', 'Retail'].map((s) => (

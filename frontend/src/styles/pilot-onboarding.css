@@ -34,13 +34,13 @@
   border-radius: 14px;
   background: #f2f2ed;
   color: #555d54;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.6;
   margin-bottom: 42px;
 }
 .em-pilot-eyebrow {
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.09em;
   font-weight: 550;
   margin-bottom: 20px;
@@ -114,7 +114,7 @@
   flex-wrap: wrap;
 }
 .em-pilot-small {
-  font-size: 12px;
+  font-size: 13px;
   color: #5b6259;
 }
 .em-pilot-error {
@@ -161,7 +161,7 @@
   border-color: #8d4e44;
 }
 .em-pilot-field small {
-  font-size: 12px;
+  font-size: 13px;
   color: #5b6259;
   line-height: 1.6;
 }
@@ -221,7 +221,7 @@
   height: 38px;
   background: #ebe4f7;
   border-radius: 50%;
-  font-size: 11px;
+  font-size: 13px;
   flex-shrink: 0;
 }
 .em-pilot-application-form {
@@ -294,7 +294,7 @@
   overflow-wrap: anywhere;
 }
 .em-pilot-invite-recipient span {
-  font-size: 11px;
+  font-size: 13px;
   color: #5b6259;
 }
 .em-pilot-invite-recipient strong {
@@ -344,7 +344,7 @@
   margin: 12px 0;
 }
 .em-pilot-manager-counts small {
-  font-size: 12px;
+  font-size: 13px;
   color: #5b6259;
 }
 .em-pilot-manager-tabs {
@@ -371,7 +371,7 @@
   color: white;
 }
 .em-pilot-manager-tabs span {
-  font-size: 11px;
+  font-size: 13px;
   opacity: 0.75;
 }
 .em-pilot-manager-list-heading {
@@ -382,11 +382,11 @@
   margin-bottom: 24px;
 }
 .em-pilot-manager-list-heading > p {
-  font-size: 12px;
+  font-size: 13px;
   color: #5b6259;
 }
 .em-pilot-manager-list-heading label {
-  font-size: 11px;
+  font-size: 13px;
   color: #5b6259;
   display: flex;
   align-items: center;
@@ -423,7 +423,7 @@
   margin-bottom: 13px;
 }
 .em-pilot-request-top > div > p:last-child {
-  font-size: 12px;
+  font-size: 13px;
   color: #5b6259;
   margin-top: 13px;
 }
@@ -435,7 +435,7 @@
   min-height: 36px;
   border-radius: 99px;
   background: #f5e3d8;
-  font-size: 11px;
+  font-size: 13px;
   text-transform: capitalize;
   flex-shrink: 0;
 }
@@ -464,7 +464,7 @@
   overflow-wrap: anywhere;
 }
 .em-pilot-request-contact span:last-child {
-  font-size: 11px;
+  font-size: 13px;
   color: #5b6259;
   margin-top: 3px;
 }
@@ -472,7 +472,7 @@
   padding: 13px 17px;
   background: #f3f3ef;
   border-radius: 13px;
-  font-size: 12px;
+  font-size: 13px;
   margin: 18px 0;
 }
 .em-pilot-request-card > .em-pilot-actions {
@@ -490,7 +490,7 @@
   font-size: 17px;
 }
 .em-pilot-link-ready > p {
-  font-size: 12px;
+  font-size: 13px;
   margin: 12px 0 18px;
 }
 .em-pilot-link-ready input {
@@ -499,11 +499,11 @@
   border: 1px solid #c4d2df;
   border-radius: 8px;
   padding: 10px;
-  font-size: 12px;
+  font-size: 13px;
   overflow-wrap: anywhere;
 }
 .em-pilot-link-ready .em-pilot-button {
-  font-size: 11px;
+  font-size: 13px;
   padding: 12px 16px;
   min-height: 44px;
 }
@@ -561,7 +561,7 @@
   font-size: 18px;
 }
 .em-pilot-shop-list p {
-  font-size: 12px;
+  font-size: 13px;
   color: #5b6259;
   margin-top: 9px;
 }
@@ -587,7 +587,7 @@
   padding: 13px 17px;
   background: #faf6f1;
   border-radius: 13px;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.7;
   margin: 15px 0 0;
   overflow-wrap: anywhere;
@@ -613,7 +613,7 @@
   background: #f5e3d8;
   border-radius: 15px;
   overflow: hidden;
-  color: #7f887a;
+  color: #51595c;
 }
 .em-pilot-managed-photo img {
   width: 100%;
@@ -627,12 +627,12 @@
   font-size: 17px;
 }
 .em-pilot-managed-listing-copy p {
-  font-size: 12px;
+  font-size: 13px;
   color: #5b6259;
   margin: 8px 0;
 }
 .em-pilot-managed-listing-copy small {
-  font-size: 11px;
+  font-size: 13px;
   color: #5b6259;
 }
 .em-pilot-audit {
@@ -665,12 +665,12 @@
   text-transform: capitalize;
 }
 .em-pilot-audit li p {
-  font-size: 12px;
+  font-size: 13px;
   max-width: 620px;
   margin-top: 10px;
 }
 .em-pilot-audit li small {
-  font-size: 10px;
+  font-size: 13px;
   text-align: right;
   line-height: 1.8;
   max-width: 240px;
@@ -748,7 +748,7 @@
   }
   .em-pilot-demo {
     margin-bottom: 28px;
-    font-size: 11px;
+    font-size: 13px;
   }
   .em-pilot-application-layout {
     grid-template-columns: 1fr;
@@ -785,10 +785,10 @@
     font-size: 40px;
   }
   .em-pilot-manager-counts small {
-    font-size: 10px;
+    font-size: 13px;
   }
   .em-pilot-manager-counts span {
-    font-size: 12px;
+    font-size: 13px;
   }
   .em-pilot-request-grid {
     grid-template-columns: 1fr;
@@ -905,7 +905,7 @@
     padding: 18px;
   }
   .em-pilot-manager-tabs button {
-    font-size: 12px;
+    font-size: 13px;
     padding: 12px 14px;
     gap: 9px;
   }

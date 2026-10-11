@@ -33,7 +33,7 @@
   line-height: 1.6;
 }
 .em-merchant-demo-note {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.6;
   color: #5b605f;
   padding: 12px 16px;
@@ -42,7 +42,7 @@
   margin-bottom: 36px;
 }
 .em-merchant-eyebrow {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -123,7 +123,7 @@
   border-radius: 2px;
 }
 .em-merchant-small {
-  font-size: 12px;
+  font-size: 13px;
   color: #5b605f;
   line-height: 1.65;
 }
@@ -188,7 +188,7 @@
   margin: 12px 0;
 }
 .em-merchant-count small {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
 }
 .em-merchant-list-heading {
@@ -286,12 +286,12 @@
   margin-bottom: 6px;
 }
 .em-merchant-product-identity p {
-  font-size: 12px;
+  font-size: 13px;
   color: #5b605f;
   margin: 0;
 }
 .em-merchant-status {
-  font-size: 12px;
+  font-size: 13px;
   padding: 8px 12px;
   border-radius: 999px;
   justify-self: start;
@@ -313,7 +313,7 @@
   font-size: 19px;
 }
 .em-merchant-product-price small {
-  font-size: 11px;
+  font-size: 13px;
   color: #5b605f;
 }
 .em-merchant-product-actions {
@@ -341,7 +341,7 @@
   line-height: 1.7;
 }
 .em-merchant-access > p.em-merchant-small {
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 20px;
 }
 .em-merchant-loading {
@@ -362,7 +362,7 @@
   gap: 18px;
 }
 .em-editor-save span {
-  font-size: 12px;
+  font-size: 13px;
   color: #5b605f;
 }
 .em-editor-steps {
@@ -393,7 +393,7 @@
   flex-shrink: 0;
   border: 1px solid #c6c9c5;
   border-radius: 50%;
-  font-size: 12px;
+  font-size: 13px;
 }
 .em-editor-steps li[aria-current='step'] {
   background: #d7e9ff;
@@ -462,7 +462,7 @@
 }
 .em-editor-field small {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   color: #5b605f;
   line-height: 1.6;
   margin-top: 10px;
@@ -472,7 +472,7 @@
 }
 .em-editor-field-error {
   color: #8b4029;
-  font-size: 12px;
+  font-size: 13px;
   margin: 8px 0;
   line-height: 1.5;
 }
@@ -499,8 +499,8 @@
   gap: 12px;
   border-radius: 20px;
   background: #f4f4f0;
-  color: #767b77;
-  font-size: 12px;
+  color: #51595c;
+  font-size: 13px;
 }
 .em-editor-photo-preview img {
   width: 100%;
@@ -558,7 +558,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #909a92;
+  color: #51595c;
 }
 .em-editor-review-photo img {
   width: 100%;
@@ -577,7 +577,7 @@
   margin: 6px 0;
 }
 .em-editor-review-card p.em-merchant-eyebrow {
-  font-size: 10px;
+  font-size: 13px;
 }
 .em-editor-review-card strong {
   font-size: 30px;
@@ -733,7 +733,7 @@
     font-size: 38px;
   }
   .em-merchant-count small {
-    font-size: 11px;
+    font-size: 13px;
   }
   .em-merchant-list-heading {
     align-items: flex-start;
@@ -865,7 +865,7 @@
   }
   .em-editor-steps li {
     padding: 12px 9px;
-    font-size: 12px;
+    font-size: 13px;
     gap: 8px;
   }
   .em-editor-actions {

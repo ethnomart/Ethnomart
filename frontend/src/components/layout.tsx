@@ -2,6 +2,8 @@ import { type ReactNode, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'wouter';
 import { useQueryClient } from '@tanstack/react-query';
 import { ReferenceHeader } from '@/components/home/reference-header';
+import { pageTrail } from '@/lib/site-navigation';
+import { ChevronRight } from 'lucide-react';
 import { useAuthStore } from '@/store/auth';
 import {
   useGetMe,
@@ -15,7 +17,8 @@ export function Layout({ children }: { children: ReactNode }) {
     logout = useLogout(),
     client = useQueryClient(),
     [location, navigate] = useLocation(),
-    previous = useRef(location);
+    previous = useRef(location),
+    main = useRef<HTMLElement>(null);
   useEffect(() => {
     if (me.isSuccess && me.data) setUser(me.data);
     else if (me.isError) setUser(null);
@@ -24,6 +27,10 @@ export function Layout({ children }: { children: ReactNode }) {
     if (previous.current === location) return;
     previous.current = location;
     if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
+    const frame = requestAnimationFrame(() =>
+      main.current?.focus({ preventScroll: true }),
+    );
+    return () => cancelAnimationFrame(frame);
   }, [location]);
   const account = !user
     ? '/login'
@@ -60,8 +67,12 @@ export function Layout({ children }: { children: ReactNode }) {
         ['Saved discoveries', '/saved'],
         ['For businesses', '/for-businesses'],
         ['Contribute', '/contribute'],
-        ['Merchant workspace', '/merchant'],
-        ['Manager review', '/admin/community'],
+        ...(user?.role === 'store_owner' || user?.role === 'admin'
+          ? [['Merchant workspace', '/merchant']]
+          : []),
+        ...(user?.role === 'admin'
+          ? [['Manager review', '/admin/community']]
+          : []),
       ],
     },
     {
@@ -78,12 +89,27 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="em-reference-layout min-h-[100dvh] flex flex-col">
       <ReferenceHeader
-        plain={location !== '/'}
         accountHref={account}
         signedIn={!!user}
         onLogout={signOut}
       />
-      <main id="main-content" tabIndex={-1} className="flex-1">
+      <main ref={main} id="main-content" tabIndex={-1} className="flex-1">
+        {location !== '/' && (
+          <nav className="em-site-breadcrumbs" aria-label="Breadcrumb">
+            <ol>
+              {pageTrail(location).map((item, index) => (
+                <li key={item.label}>
+                  {index > 0 && <ChevronRight size={14} aria-hidden="true" />}
+                  {item.href ? (
+                    <Link href={item.href}>{item.label}</Link>
+                  ) : (
+                    <span aria-current="page">{item.label}</span>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
         {children}
       </main>
       <footer className="em-m-footer">
@@ -117,7 +143,10 @@ export function Layout({ children }: { children: ReactNode }) {
           ))}
         </div>
         <div className="em-m-footer-bottom">
-          <span>© {new Date().getFullYear()} EthnoMart · Local preview</span>
+          <span>
+            © {new Date().getFullYear()} EthnoMart ·{' '}
+            {import.meta.env.DEV ? 'Local preview' : 'Website preview'}
+          </span>
           <span>
             Fictional sample listings · AI concept photos · No orders, bookings
             or real applications

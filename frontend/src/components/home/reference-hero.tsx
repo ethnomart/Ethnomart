@@ -62,7 +62,8 @@ export function ReferenceHero() {
                 A shared place to start.
               </p>
               <p className="em-reference-community-sub">
-                Local preview · AI concept photos.
+                {import.meta.env.DEV ? 'Local preview' : 'Website preview'} · AI
+                concept photos.
               </p>
             </div>
           </div>
@@ -89,9 +90,9 @@ export function ReferenceHero() {
         </div>
 
         <a
-          href="#communities"
+          href="#explore-ethnomart"
           className="em-reference-scroll"
-          aria-label="Scroll to communities"
+          aria-label="Explore EthnoMart categories"
         >
           <ArrowDown size={17} strokeWidth={1.6} aria-hidden="true" />
         </a>

@@ -16,7 +16,7 @@
   --color-popover-border: #eeeeee;
 
   /* Primary = orange CTA / accent */
-  --color-primary: #ff540a;
+  --color-primary: #b83a00;
   --color-primary-foreground: #ffffff;
 
   /* Secondary = dark primary text */
@@ -24,18 +24,18 @@
   --color-secondary-foreground: #ffffff;
 
   --color-muted: #eeeeee;
-  --color-muted-foreground: #76787a;
+  --color-muted-foreground: #51595c;
 
   /* Accent = light orange tint */
   --color-accent: #fff1ec;
-  --color-accent-foreground: #ff540a;
+  --color-accent-foreground: #b83a00;
 
-  --color-destructive: #e74c3c;
+  --color-destructive: #b42318;
   --color-destructive-foreground: #ffffff;
 
   --color-border: #eeeeee;
-  --color-input: #eeeeee;
-  --color-ring: #ff540a;
+  --color-input: #7e8782;
+  --color-ring: #0d2a4c;
 
   /* ── Typography ──────────────────────────────────────────── */
   --font-sans: 'EthnoMart Mona Sans', system-ui, -apple-system, sans-serif;
@@ -81,10 +81,10 @@
 
   /* Smooth focus ring using brand orange */
   :focus-visible {
-    outline: 2px solid #ff540a;
+    outline: 3px solid #0d2a4c;
     outline-offset: 2px;
     border-radius: 4px;
-    box-shadow: 0 0 0 4px rgba(255, 84, 10, 0.35);
+    box-shadow: 0 0 0 2px #fff;
   }
 
   html {
@@ -171,7 +171,7 @@
   }
 
   .em-btn-primary {
-    background-color: #ff540a;
+    background-color: #b83a00;
     color: #ffffff;
     padding: 0.75rem 1.5rem;
     font-size: 0.875rem;
@@ -179,7 +179,7 @@
   }
 
   .em-btn-primary:hover {
-    background-color: #e44808;
+    background-color: #993000;
   }
 
   .em-btn-primary:active {
@@ -220,7 +220,7 @@
   /* Badge */
   .em-badge {
     display: inline-block;
-    background-color: #ff540a;
+    background-color: #b83a00;
     color: #ffffff;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;

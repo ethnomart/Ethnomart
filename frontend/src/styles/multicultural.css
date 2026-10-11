@@ -29,7 +29,7 @@
   line-height: 1.65;
 }
 .em-m-eyebrow {
-  font-size: 12px !important;
+  font-size: 13px !important;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 650;
@@ -89,7 +89,7 @@
   background: #fff;
   padding: 5px 12px;
   border-radius: 30px;
-  font-size: 11px;
+  font-size: 13px;
   text-transform: capitalize;
 }
 .em-m-card-body {
@@ -722,28 +722,6 @@
 .em-m-follow {
   margin: 10px 0 30px;
 }
-.em-reference-layout {
-  font-family: 'EthnoMart Mona Sans', sans-serif !important;
-}
-.em-reference-desktop-nav {
-  gap: 22px !important;
-}
-.em-reference-header-cta {
-  font-size: 12px !important;
-}
-.em-reference-hero-title {
-  font-size: clamp(52px, 6.1vw, 94px) !important;
-}
-.em-reference-hero-copy {
-  max-width: 610px !important;
-}
-.em-reference-hero-shade {
-  background: linear-gradient(
-    90deg,
-    rgba(10, 27, 28, 0.64),
-    rgba(10, 27, 28, 0.13)
-  ) !important;
-}
 .em-m-page :focus-visible,
 .em-m-home-section :focus-visible,
 .em-m-footer :focus-visible,
@@ -918,9 +896,7 @@
   .em-m-hero-search input {
     font-size: 14px;
   }
-  .em-reference-hero-title {
-    font-size: clamp(45px, 10vw, 64px) !important;
-  }
+
   .em-m-hero-search {
     margin-top: 24px;
   }
@@ -948,130 +924,8 @@
   }
 }
 
-.em-reference-mobile-nav a {
-  font-size: clamp(19px, 3vh, 25px) !important;
-  padding: 12px 0 !important;
-}
-.em-reference-menu {
-  overflow-y: auto !important;
-}
 .em-m-clothing-links {
   margin-top: 25px;
-}
-
-/* Header essentials are shared explicitly; no route-specific stylesheet is required. */
-.em-brand-logo-image {
-  aspect-ratio: 2000/435;
-  object-fit: contain;
-  object-position: center;
-}
-.em-reference-brand {
-  width: 250px;
-  min-height: 54px;
-  padding: 0;
-  gap: 0;
-  flex-shrink: 0;
-  background: transparent;
-}
-.em-reference-brand img {
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 0 2px #ffffffee) drop-shadow(0 0 10px #ffffffbb);
-}
-.em-reference-menu-title img {
-  display: block;
-  width: min(100%, 255px);
-  height: auto;
-}
-.em-reference-header.em-reference-header--plain {
-  position: relative;
-  top: auto;
-  left: auto;
-  right: auto;
-  margin: 0 auto;
-  padding: 22px 34px;
-  width: 100%;
-  max-width: 1670px;
-  color: #303133;
-}
-.em-reference-header--plain .em-reference-desktop-nav a,
-.em-reference-header--plain .em-reference-desktop-nav button {
-  color: #303133;
-}
-.em-reference-header--plain .em-reference-header-cta {
-  background: #303133;
-  color: white;
-}
-.em-reference-header--plain .em-reference-header-cta:hover {
-  background: #4b4c4e;
-}
-.em-reference-header--plain .em-reference-menu-trigger {
-  color: #303133;
-  border-color: #ddd;
-  background: white;
-}
-.em-reference-header--plain :focus-visible {
-  outline: 2px solid #303133;
-  outline-offset: 4px;
-}
-@media (max-width: 1199px) {
-  .em-reference-brand {
-    width: 218px;
-  }
-  .em-reference-header {
-    gap: 22px;
-  }
-  .em-reference-desktop-nav {
-    gap: 16px !important;
-  }
-  .em-reference-desktop-nav a,
-  .em-reference-desktop-nav button {
-    font-size: 13px;
-  }
-}
-@media (max-width: 1099px) {
-  .em-reference-desktop-nav,
-  .em-reference-header-cta {
-    display: none;
-  }
-  .em-reference-menu-trigger {
-    display: grid;
-    place-items: center;
-    width: 44px;
-    height: 44px;
-    margin-left: auto;
-    border: 1px solid #ffffff50;
-    border-radius: 50%;
-    background: #ffffff15;
-    color: #fff;
-    cursor: pointer;
-  }
-}
-@media (max-width: 700px) {
-  .em-reference-hero-title {
-    font-size: clamp(36px, 9.2vw, 54px) !important;
-  }
-  .em-reference-hero-title span:last-child {
-    white-space: normal;
-  }
-  .em-reference-header.em-reference-header--plain {
-    padding: 17px 24px;
-  }
-  .em-reference-brand {
-    width: 210px;
-  }
-}
-@media (max-width: 359px) {
-  .em-reference-brand {
-    width: 179px;
-  }
-  .em-reference-header {
-    gap: 12px;
-  }
-  .em-reference-hero-title {
-    font-size: 36px !important;
-  }
 }
 
 /* Small, finite effects; content is readable before JavaScript runs. */
