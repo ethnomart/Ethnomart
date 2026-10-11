@@ -4,7 +4,9 @@ A multicultural discovery website for groceries, clothing, communities, events a
 
 ## Deploy on Hostinger Node.js Web Apps
 
-In hPanel, add a **Node.js Web App**, connect this GitHub repository and choose `main`.
+In hPanel, add a **Node.js Web App** and choose **Upload files** to upload `ethnomart-hostinger-source.zip`. The ZIP contains the source code, package lockfile and assets; Hostinger installs dependencies and builds it. Keep `package.json` at the selected root directory.
+
+For GitHub deployment later, connect the EthnoMart repository and choose `main` after this source has been pushed using an account with access to it. Both methods use the settings below.
 
 | Setting | Value |
 | --- | --- |
