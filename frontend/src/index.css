@@ -1,0 +1,246 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  /* ── EthnoMart Brand Palette ─────────────────────────────── */
+  --color-background: #f5f0eb; /* Warm cream — signature page bg */
+  --color-foreground: #1d1d1d; /* Primary text */
+
+  --color-card: #ffffff;
+  --color-card-foreground: #1d1d1d;
+  --color-card-border: #eeeeee;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1d1d1d;
+  --color-popover-border: #eeeeee;
+
+  /* Primary = orange CTA / accent */
+  --color-primary: #ff540a;
+  --color-primary-foreground: #ffffff;
+
+  /* Secondary = dark primary text */
+  --color-secondary: #1d1d1d;
+  --color-secondary-foreground: #ffffff;
+
+  --color-muted: #eeeeee;
+  --color-muted-foreground: #76787a;
+
+  /* Accent = light orange tint */
+  --color-accent: #fff1ec;
+  --color-accent-foreground: #ff540a;
+
+  --color-destructive: #e74c3c;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: #eeeeee;
+  --color-input: #eeeeee;
+  --color-ring: #ff540a;
+
+  /* ── Typography ──────────────────────────────────────────── */
+  --font-sans: 'EthnoMart Mona Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'EthnoMart Mona Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* ── Border Radius ───────────────────────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px; /* cards */
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px; /* pills / buttons */
+
+  /* ── Shadows ─────────────────────────────────────────────── */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.08), 0 10px 10px rgba(0, 0, 0, 0.03);
+
+  /* ── Spacing ─────────────────────────────────────────────── */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--color-border);
+  }
+
+  /* Smooth focus ring using brand orange */
+  :focus-visible {
+    outline: 2px solid #ff540a;
+    outline-offset: 2px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 4px rgba(255, 84, 10, 0.35);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Heading hierarchy — Archivo only */
+  h1 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--color-foreground);
+  }
+
+  h2 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--color-foreground);
+  }
+
+  h3 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-foreground);
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-foreground);
+  }
+}
+
+/* ── EthnoMart Component Utilities ──────────────────────────── */
+@layer components {
+  /* Navbar */
+  .em-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    height: 64px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+  }
+
+  /* Buttons — pill shaped */
+  .em-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .em-btn-primary {
+    background-color: #ff540a;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    min-height: 40px;
+  }
+
+  .em-btn-primary:hover {
+    background-color: #e44808;
+  }
+
+  .em-btn-primary:active {
+    background-color: #cc3e00;
+  }
+
+  .em-btn-secondary {
+    background-color: transparent;
+    color: #1d1d1d;
+    border-color: #1d1d1d;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    min-height: 40px;
+  }
+
+  .em-btn-secondary:hover {
+    background-color: #1d1d1d;
+    color: #ffffff;
+  }
+
+  /* Cards */
+  .em-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.08),
+      0 1px 2px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: box-shadow 300ms ease;
+  }
+
+  .em-card:hover {
+    box-shadow:
+      0 10px 15px rgba(0, 0, 0, 0.08),
+      0 4px 6px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Badge */
+  .em-badge {
+    display: inline-block;
+    background-color: #ff540a;
+    color: #ffffff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Section container */
+  .em-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .em-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}

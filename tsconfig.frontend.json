@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["node", "vite/client"],
+    "paths": {
+      "@/*": ["./frontend/src/*"],
+      "@workspace/api-client-react": ["./shared/api-client/index.ts"]
+    }
+  },
+  "include": ["frontend/src/**/*", "shared/api-client/**/*", "vite.config.ts"]
+}

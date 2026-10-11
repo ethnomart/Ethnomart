@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EthnoMart — Your culture. Your neighbourhood.</title>
+    <meta
+      name="description"
+      content="Explore groceries, cultural clothing, communities, events and local opportunities in the EthnoMart sample preview."
+    />
+    <!-- Demo preview: keep noindex until the production release requirements are met. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:title" content="EthnoMart — Your culture. Your neighbourhood." />
+    <meta
+      property="og:description"
+      content="Explore groceries, cultural clothing, communities, events and local opportunities in the EthnoMart sample preview."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="EthnoMart — Your culture. Your neighbourhood." />
+    <meta
+      name="twitter:description"
+      content="Explore groceries, cultural clothing, communities, events and local opportunities in the EthnoMart sample preview."
+    />
+    <link
+      rel="preload"
+      href="%BASE_URL%fonts/mona-sans-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      href="%BASE_URL%images/multicultural/neighbourhood-1536.avif"
+      imagesrcset="%BASE_URL%images/multicultural/neighbourhood-640.avif 640w, %BASE_URL%images/multicultural/neighbourhood-960.avif 960w, %BASE_URL%images/multicultural/neighbourhood-1536.avif 1536w"
+      imagesizes="(max-width: 960px) 960px, calc(100vw - 36px)"
+      fetchpriority="high"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
