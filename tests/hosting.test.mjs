@@ -6,8 +6,8 @@ import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DatabaseSync } from 'node:sqlite';
 import bcrypt from 'bcryptjs';
-import {spawn} from 'node:child_process';
-import {createServer} from 'node:net';
+import { spawn } from 'node:child_process';
+import { createServer } from 'node:net';
 import { runtimeConfig, dataLocation } from '../server/src/config.ts';
 import { createHostedApp } from '../server/src/hosted-app.ts';
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -19,23 +19,72 @@ const config = runtimeConfig(root, {
   TRUST_PROXY: '1',
 });
 
-test('Both Hostinger entry files start the compiled website and API',async()=>{
- for(const entry of ['app.js','dist/app.js']){
-  const reserve=createServer();await new Promise(resolve=>reserve.listen(0,'127.0.0.1',resolve));
-  const port=reserve.address().port;await new Promise(resolve=>reserve.close(resolve));
-  const child=spawn(process.execPath,[entry],{cwd:root,env:{...process.env,NODE_ENV:'production',PORT:String(port),TRUST_PROXY:'1',ETHNOMART_DATA_FILE:join(sandbox,'entry-'+port,'catalogue.sqlite3')},stdio:['ignore','pipe','pipe']});
-  let logs='';child.stdout.on('data',data=>{logs+=data;});child.stderr.on('data',data=>{logs+=data;});
-  try{
-   let ready=false;
-   for(let attempt=0;attempt<100;attempt++){
-    if(child.exitCode!==null)throw new Error('Entry failed: '+logs);
-    try{const response=await fetch(`http://127.0.0.1:${port}/api/readyz`);if(response.ok){assert.equal((await response.json()).mode,'hosted-preview');ready=true;break;}}catch{}
-    await new Promise(resolve=>setTimeout(resolve,50));
-   }
-   assert.ok(ready,'Compiled entry did not become ready: '+logs);
-   const html=await(await fetch(`http://127.0.0.1:${port}/clothing`)).text();assert.match(html,/id="root"/);
-  }finally{if(child.exitCode===null){const ended=new Promise(resolve=>child.once('exit',resolve));child.kill('SIGTERM');await ended;}}
- }
+test('Both Hostinger entry files work directly and through a CommonJS hosting loader', async () => {
+  for (const { entry, loader } of ['app.js', 'dist/app.js'].flatMap((entry) =>
+    ['direct', 'require'].map((loader) => ({ entry, loader })),
+  )) {
+    const reserve = createServer();
+    await new Promise((resolve) => reserve.listen(0, '127.0.0.1', resolve));
+    const port = reserve.address().port;
+    await new Promise((resolve) => reserve.close(resolve));
+    const args =
+      loader === 'require'
+        ? [
+            '--input-type=commonjs',
+            '-e',
+            `require(${JSON.stringify('./' + entry)});`,
+          ]
+        : [entry];
+    const child = spawn(process.execPath, args, {
+      cwd: root,
+      env: {
+        ...process.env,
+        NODE_ENV: 'production',
+        PORT: String(port),
+        TRUST_PROXY: '1',
+        ETHNOMART_DATA_FILE: join(
+          sandbox,
+          'entry-' + port,
+          'catalogue.sqlite3',
+        ),
+      },
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    let logs = '';
+    child.stdout.on('data', (data) => {
+      logs += data;
+    });
+    child.stderr.on('data', (data) => {
+      logs += data;
+    });
+    try {
+      let ready = false;
+      for (let attempt = 0; attempt < 100; attempt++) {
+        if (child.exitCode !== null)
+          throw new Error(`Entry ${entry} with ${loader} failed: ` + logs);
+        try {
+          const response = await fetch(`http://127.0.0.1:${port}/api/readyz`);
+          if (response.ok) {
+            assert.equal((await response.json()).mode, 'hosted-preview');
+            ready = true;
+            break;
+          }
+        } catch {}
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      }
+      assert.ok(ready, 'Compiled entry did not become ready: ' + logs);
+      const html = await (
+        await fetch(`http://127.0.0.1:${port}/clothing`)
+      ).text();
+      assert.match(html, /id="root"/);
+    } finally {
+      if (child.exitCode === null) {
+        const ended = new Promise((resolve) => child.once('exit', resolve));
+        child.kill('SIGTERM');
+        await ended;
+      }
+    }
+  }
 });
 
 test('Deployment configuration preserves data outside release folders', () => {

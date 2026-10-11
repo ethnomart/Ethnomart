@@ -22,6 +22,8 @@ For GitHub deployment later, connect the EthnoMart repository and choose `main` 
 
 The root `app.js` launches the built server. A second launcher at `dist/app.js` is also generated for interfaces that expect the entry file within the output directory. Choose Express, rather than a static Vite-only deployment, to retain the API.
 
+Both launchers support direct Node startup and LiteSpeed's CommonJS `require()` loader. They import the server without top-level `await` and log startup errors to the runtime log.
+
 Set `NODE_ENV=production` and `TRUST_PROXY=1` in hPanel. Hostinger supplies `PORT`; do not replace it with the development port. `PUBLIC_ORIGIN` is optional: set it to the exact HTTPS domain currently serving the website, such as your Hostinger temporary URL. Update it when switching domains. When omitted, mutations are restricted to the HTTPS origin of the incoming website request. Cookie security relies on the configured proxy hop count matching Hostinger's routing.
 
 Deploy, then verify:

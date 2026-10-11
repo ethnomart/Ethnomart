@@ -1,6 +1,6 @@
 import { build as viteBuild } from 'vite';
 import { build as esbuild } from 'esbuild';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -22,7 +22,8 @@ await esbuild({
   logLevel: 'info',
 });
 await mkdir(resolve(root, 'dist'), { recursive: true });
+const launcher = await readFile(resolve(root, 'app.js'), 'utf8');
 await writeFile(
   resolve(root, 'dist/app.js'),
-  "process.env.NODE_ENV ||= 'production';\nawait import('./server/index.mjs');\n",
+  launcher.replace('./dist/server/index.mjs', './server/index.mjs'),
 );
