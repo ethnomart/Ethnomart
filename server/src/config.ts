@@ -7,6 +7,7 @@ import {
   sep,
 } from 'node:path';
 import { realpathSync, existsSync } from 'node:fs';
+import { comingSoonEnabled } from '../../shared/site-status.ts';
 
 function inside(file: string, directory: string) {
   const part = relative(directory, file);
@@ -93,5 +94,6 @@ export function runtimeConfig(
     trustProxy,
     port,
     staticDirectory: resolve(projectRoot, 'dist/public'),
+    comingSoon: comingSoonEnabled(env.ETHNOMART_COMING_SOON),
   };
 }

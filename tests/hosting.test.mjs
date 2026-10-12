@@ -17,6 +17,7 @@ const config = runtimeConfig(root, {
   PUBLIC_ORIGIN: 'https://preview.example.invalid',
   PORT: '3000',
   TRUST_PROXY: '1',
+  ETHNOMART_COMING_SOON: 'false',
 });
 
 test('Both Hostinger entry files work directly and through a CommonJS hosting loader', async () => {
@@ -42,6 +43,7 @@ test('Both Hostinger entry files work directly and through a CommonJS hosting lo
         NODE_ENV: 'production',
         PORT: String(port),
         TRUST_PROXY: '1',
+        ETHNOMART_COMING_SOON: 'false',
         ETHNOMART_DATA_FILE: join(
           sandbox,
           'entry-' + port,
@@ -215,6 +217,49 @@ test('Hosted frontend, API, secure sessions and private data work together', asy
   await start();
   let cookie, reference;
   try {
+    await t.test(
+      "Coming soon covers deep links and can reopen without replacing website data",
+      async () => {
+        try {
+          config.comingSoon = true;
+          for (const path of [
+            "/",
+            "/shops",
+            "/clothing",
+            "/events/neighbourhood-craft-table",
+            "/admin/merchant-pilot",
+            "/index.html",
+            "/unknown-page",
+          ]) {
+            const r = await request(path),
+              html = await r.text();
+            assert.equal(r.status, 200, path);
+            assert.match(html, /Coming soon\./);
+            assert.match(html, /\/brand\/ethnomart-logo\.png/);
+            assert.ok(!html.includes('id="root"'), path);
+            assert.equal(r.headers.get("cache-control"), "no-store");
+          }
+          assert.equal(
+            (await request("/shops", { method: "HEAD" })).status,
+            200,
+          );
+          assert.match(
+            (await request("/coming-soon.css")).headers.get("content-type"),
+            /text\/css/,
+          );
+          assert.equal(
+            (await request("/brand/ethnomart-logo.png")).status,
+            200,
+          );
+          assert.equal((await request("/api/readyz")).status, 200);
+          assert.equal((await request("/.env")).status, 404);
+        } finally {
+          config.comingSoon = false;
+        }
+        assert.match(await (await request("/clothing")).text(), /id="root"/);
+        assert.equal((await request("/api/readyz")).status, 200);
+      },
+    );
     await t.test(
       'Production starts and reports the connected database',
       async () => {

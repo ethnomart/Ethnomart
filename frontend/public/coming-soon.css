@@ -1,0 +1,90 @@
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/mona-sans-variable.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  background: #f7f5ef;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  font-family: "Mona Sans", Arial, sans-serif;
+  color: #0d2a4c;
+  background:
+    radial-gradient(ellipse at 3% 5%, #ffe2d5 0, transparent 48%),
+    radial-gradient(ellipse at 98% 95%, #e1ebf4 0, transparent 44%), #f7f5ef;
+}
+
+.coming-soon {
+  width: min(100%, 1120px);
+  padding: clamp(48px, 8vh, 96px) clamp(24px, 5vw, 64px);
+  text-align: center;
+}
+
+.coming-soon-logo {
+  display: block;
+  width: min(100%, 850px);
+  height: auto;
+  margin: 0 auto;
+}
+
+.coming-soon-tagline {
+  margin: clamp(22px, 4vw, 40px) 0 0;
+  font-size: clamp(16px, 1.7vw, 21px);
+  line-height: 1.5;
+  font-weight: 550;
+}
+
+h1 {
+  margin: clamp(36px, 5vw, 64px) 0 20px;
+  font-size: clamp(46px, 7.5vw, 96px);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.coming-soon-message {
+  max-width: 570px;
+  margin: 0 auto;
+  color: #43536a;
+  font-size: clamp(17px, 1.8vw, 21px);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.coming-soon-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: clamp(32px, 5vw, 52px) 0 0;
+  padding: 12px 18px;
+  border: 1px solid #b9c8c0;
+  border-radius: 999px;
+  background: #eef3ed;
+  color: #235347;
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.5;
+}
+
+.coming-soon-status span {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: #23735d;
+}

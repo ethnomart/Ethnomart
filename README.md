@@ -2,6 +2,14 @@
 
 A multicultural discovery website for groceries, clothing, communities, events and jobs. React/Vite and the Express catalogue API run on the same domain. This release contains clearly labelled fictional listings and sample-only forms.
 
+## Temporary Coming soon page
+
+The website currently shows a large EthnoMart logo and Coming soon message on every website route, including deep links and `/index.html`. It uses the existing transparent logo, local font and brand colours. The complete frontend, backend and private database remain intact; the API and health checks continue to function.
+
+To reopen the normal website, change `comingSoonByDefault` to `false` in `shared/site-status.ts`, then build and deploy. Alternatively, set `ETHNOMART_COMING_SOON=false` in Hostinger's environment variables and restart/redeploy the application. Set it to `true` to close again; an environment variable takes priority over the checked-in default. Both local Vite preview and the hosted Express server follow this setting. Coming soon HTML and CSS use `no-store` so the placeholder does not delay reopening.
+
+To develop the full website while the live default remains Coming soon, set `ETHNOMART_COMING_SOON=false` in the terminal environment before starting `npm run dev`. This override is local to that process and does not publish the full website.
+
 ## Deploy on Hostinger Node.js Web Apps
 
 In hPanel, add a **Node.js Web App** and choose **Upload files** to upload `ethnomart-hostinger-source.zip`. The ZIP contains the source code, package lockfile and assets; Hostinger installs dependencies and builds it. Keep `package.json` at the selected root directory.

@@ -3,13 +3,17 @@ import { existsSync } from 'node:fs';
 import { resolve, relative, extname, sep } from 'node:path';
 import { createCatalogueApp } from './catalogue/app.ts';
 import type { runtimeConfig } from './config.ts';
+import { isWebsiteDocument } from '../../shared/site-status.ts';
 
 export function createHostedApp(config: ReturnType<typeof runtimeConfig>) {
   const html = resolve(config.staticDirectory, 'index.html');
+  const comingSoonHtml = resolve(config.staticDirectory, 'coming-soon.html');
   if (!existsSync(html))
     throw new Error(
       'Frontend build is missing. Run npm run build before starting the website.',
     );
+  if (config.comingSoon && !existsSync(comingSoonHtml))
+    throw new Error('Coming soon page is missing. Run npm run build.');
   const catalogue = createCatalogueApp({
     dataFile: config.dataFile,
     deployment: 'hosted-preview',
@@ -37,12 +41,23 @@ export function createHostedApp(config: ReturnType<typeof runtimeConfig>) {
   app.use((req, res, next) =>
     /^\/api(?:\/|$)/.test(req.path) ? catalogue.app(req, res, next) : next(),
   );
+  app.use((req, res, next) => {
+    if (
+      !config.comingSoon ||
+      !isWebsiteDocument(req.method, req.path, Boolean(req.accepts('html')))
+    )
+      return next();
+    res.set('Cache-Control', 'no-store');
+    res.sendFile(comingSoonHtml);
+  });
   app.use(
     express.static(config.staticDirectory, {
       index: false,
       dotfiles: 'deny',
       maxAge: 86400000,
       setHeaders: (res, file) => {
+        if (/coming-soon\.(css|html)$/.test(file))
+          res.setHeader('Cache-Control', 'no-store');
         if (relative(config.staticDirectory, file).startsWith('assets' + sep))
           res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
       },
